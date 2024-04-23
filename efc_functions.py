@@ -12,20 +12,18 @@ import glob
 from datetime import datetime
 
 
-# wrote this yrs ago and don't remember why I did it this way
-def read_csv(file):
-    arr = []
-    with open(file, newline='', encoding="ISO-8859-1") as csvfile:
-        reader = csv.reader(csvfile)
-        for row in reader:
-            try:
-                arr.append(row)
-            except UnicodeDecodeError:
-                print("decode error reading CSV: ", row)
-                continue
-    csvfile.close()
-    return arr
-
+# this function handles state name error checking
+def best_match(x):
+    x = str(x)
+    if len(x) == 2:  # Try another way for 2-letter codes
+        for a, n in states.items():
+            if len(n.split()) == 2:
+                if "".join([c[0] for c in n.split()]).lower() == x.lower():
+                    return n.upper()
+    new_rx = re.compile(r"\w*".join([ch for ch in x]), re.I)
+    for a, n in states.items():
+        if new_rx.match(n):
+            return n.upper()
 
 # typing func
 def convert_float_from_str(val):
@@ -47,11 +45,6 @@ def convert_int_from_str(val):
         return 0
     except TypeError:
         return 0
-
-
-def total_per_cfda_by_city(row, city):
-    print('h')
-    print(row.head())
 
 
 # indices of all the columns we care about
@@ -246,62 +239,6 @@ prime_CFDAs = [
 ]
 
 # List of states
-state_abbrev = {
-    'AK': 'Alaska',
-    'AL': 'Alabama',
-    'AR': 'Arkansas',
-    'AZ': 'Arizona',
-    'CA': 'California',
-    'CO': 'Colorado',
-    'CT': 'Connecticut',
-    'DC': 'District of Columbia',
-    'DE': 'Delaware',
-    'FL': 'Florida',
-    'GA': 'Georgia',
-    'HI': 'Hawaii',
-    'IA': 'Iowa',
-    'ID': 'Idaho',
-    'IL': 'Illinois',
-    'IN': 'Indiana',
-    'KS': 'Kansas',
-    'KY': 'Kentucky',
-    'LA': 'Louisiana',
-    'MA': 'Massachusetts',
-    'MD': 'Maryland',
-    'ME': 'Maine',
-    'MI': 'Michigan',
-    'MN': 'Minnesota',
-    'MO': 'Missouri',
-    'MS': 'Mississippi',
-    'MT': 'Montana',
-    'NC': 'North Carolina',
-    'ND': 'North Dakota',
-    'NE': 'Nebraska',
-    'NH': 'New Hampshire',
-    'NJ': 'New Jersey',
-    'NM': 'New Mexico',
-    'NV': 'Nevada',
-    'NY': 'New York',
-    'OH': 'Ohio',
-    'OK': 'Oklahoma',
-    'OR': 'Oregon',
-    'PA': 'Pennsylvania',
-    'RI': 'Rhode Island',
-    'SC': 'South Carolina',
-    'SD': 'South Dakota',
-    'TN': 'Tennessee',
-    'TX': 'Texas',
-    'UT': 'Utah',
-    'VA': 'Virginia',
-    'VT': 'Vermont',
-    'WA': 'Washington',
-    'WI': 'Wisconsin',
-    'WV': 'West Virginia',
-    'WY': 'Wyoming',
-    'PR': 'Puerto Rico',
-    'VI': 'Virgin Islands'
-}
-
 states = {
     'AK': 'Alaska',
     'AL': 'Alabama',
@@ -363,16 +300,6 @@ states = {
 }
 
 
-def best_match(x):
-    x = str(x)
-    if len(x) == 2:  # Try another way for 2-letter codes
-        for a, n in states.items():
-            if len(n.split()) == 2:
-                if "".join([c[0] for c in n.split()]).lower() == x.lower():
-                    return n.upper()
-    new_rx = re.compile(r"\w*".join([ch for ch in x]), re.I)
-    for a, n in states.items():
-        if new_rx.match(n):
-            return n.upper()
+
 
 
