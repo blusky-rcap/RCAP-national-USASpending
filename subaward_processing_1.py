@@ -2,9 +2,6 @@ from subs_functions import *
 
 cfda_l = SUBAWARD_str
 print(type(cfda_l[0]))
-#numeric_const_pattern = '[-+]? (?: (?: \d* \. \d+ ) | (?: \d+ \.? ) )(?: [Ee] [+-]? \d+ ) ?'
-#rx = re.compile(numeric_const_pattern, re.VERBOSE)
-# rx.findall("Some example: Jr. it. was .23 between 2.3 and 42.31 seconds")
 
 # scan the directory that has the csv data
 raw_csv_files = os.scandir(path='../SubawardFiles')
@@ -13,7 +10,6 @@ raw_filenames = []
 for file in raw_csv_files:
     raw_filenames.append(file.name)
 
-#all_files = glob.glob('../AllTheData/*.csv')
 print('READING IN DATA...')
 i = 0
 for datafile in raw_filenames:
