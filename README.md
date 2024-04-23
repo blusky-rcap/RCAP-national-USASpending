@@ -1,5 +1,6 @@
 # RCAP-national-USASpending
 This repository contains Python scripts used to conduct analysis of USASpending data.
+This project organizes federal spending using the Catalog of Federal Domestic Assistance (CFDA) numbers for each program. For additional details on the programs of interest for this project, see the 'Program Search_CFDAs.xlsx' spreadsheet in this repository.
 
 ## Preparation for Analysis
 In order to conduct analysis, data must first be downloaded from USAspending.gov. There are a variety of ways to do this, such as the Award Data Archive, or the Custom Award Data download page. Choose a set of data to suit your needs, and be patient. Once downloaded, decompressed and organized, relevant paths, filenames, datatypes, and column indices can be updated throughout the code. 
