@@ -1,9 +1,11 @@
 import pandas as pd
 from efc_functions import *
 
-
+# read output from previous script
 nat_df = pd.read_csv('sub7.csv')
+# drop unecessary column
 nat_dropped = nat_df.drop(columns=['prime_award_amount'])
+# rename columns so that subs df can be combined with prime df
 new_col_names = {
     'subawardee_city_name': 'recipient_city_name',
     'subaward_primary_place_of_performance_state_name': 'primary_place_of_performance_state_name',
