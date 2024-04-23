@@ -1,10 +1,6 @@
 from efc_functions import *
 
-# read in list of cfda nums
-#CFDA_list = read_csv('../EFC_CFDAs.txt')
-#l = CFDA_list[1:]  # deal w 0 index issues
 l = prime_CFDAs
-# this comes in as a list of lists, no good, maybe fix read csv func sometime
 cfda_l = []
 # turn list of lists into list of nums
 for entry in l:
