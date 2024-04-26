@@ -11,12 +11,10 @@ def confirm_full_state_name(x):
 
 
 df = dd.read_csv('../DataFilteredByCFDA/*.csv', converters=dtypes_in)
-# nm_df = df.loc[df['primary_place_of_performance_state_name'] == 'New Mexico']
 df.to_csv('prime_CFDA_filtered2.csv', single_file=True)
 
 nat_df = dd.read_csv('prime_CFDA_filtered2.csv', converters=dtypes_in, engine='python', on_bad_lines='warn')
 
-# nat_df['recipient_county_name'] = nat_df['recipient_county_name'].str.replace('\d+', '')
 nat_df['recipient_city_name'] = nat_df['recipient_city_name'].str.replace(r'"', '')
 nat_df['recipient_city_name'] = nat_df['recipient_city_name'].str.split(',').str[0]
 nat_df['recipient_city_name'] = nat_df['recipient_city_name'].str.replace(r'.', '')
