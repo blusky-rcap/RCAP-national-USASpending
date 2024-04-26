@@ -14,7 +14,7 @@ eda_df['recipient_city_name'] = eda_df['recipient_city_name'].str.replace(r'.', 
 # error checking state names
 eda_df['primary_place_of_performance_state_name'] = eda_df['primary_place_of_performance_state_name'].apply(
     lambda x: best_match(x))
-# this is necessary bc the raw data had 1 col for both CFDA num and title
+# this is necessary bc the raw EDA data provided had 1 col for both CFDA num and title
 eda_df[['cfda_number', 'prime_cfda_title']] = eda_df['cfda_numbers_and_titles'].str.split(':', n=1, expand=True)
 groupby_cols = [
     'recipient_city_name',
