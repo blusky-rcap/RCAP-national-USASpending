@@ -13,7 +13,6 @@ raw_filenames = []
 for file in raw_csv_files:
     raw_filenames.append(file.name)
 print(raw_filenames)
-#all_files = glob.glob('../AllTheData/*.csv')
 print('READING IN DATA...')
 i = 0
 for datafile in raw_filenames:
@@ -37,7 +36,5 @@ for datafile in raw_filenames:
 print('DONE')
 
 df = dd.read_csv('../DataFilteredByCFDA/*.csv', usecols=cols_in, converters=dtypes_in, engine='python', on_bad_lines='warn')
-#nm_df = df.loc[df['primary_place_of_performance_state_name'] == 'New Mexico']
 df.to_csv('prime_CFDA_filterd1.csv', single_file=True)
-#nm_df.to_csv('NM_agged_CFDA_filtered.csv', single_file=True)
 print('script complete.')
