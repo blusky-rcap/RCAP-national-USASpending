@@ -4,6 +4,8 @@ The analysis organizes federal spending using the Catalog of Federal Domestic As
 
 The goal for this code base was to create a table of location names and spending totals for multiple water-related programs, for the whole United States, from fiscal years 2000-2023. This table was used to create a GIS application, a webmap that details funding received across multiple programs for 2 decades by nearly 10,000 communites across the U.S.. 
 
+This project was funded by EPA under the National Water Infrastructure Environmental Finance Center Program.
+
 ## Preparation for Analysis
 In order to conduct analysis using the included scripts, data must first be downloaded from USAspending.gov. There are a variety of ways to do this, such as the Award Data Archive, or the Custom Award Data download page. Choose a set of data to suit your needs, and be patient. Once downloaded, decompressed, and organized, relevant paths, filenames, datatypes, and column indices can be updated throughout the included code (assuming a case where this repo is used as a starting point). This will require careful attention, as the existing source code is structured for the machine on which most development for this project took place. For example, the raw prime award data for this project was stored in a directory called 'AllTheData,' while subaward data was in a directory called 'SubawardFiles.' These directory names are hardcoded in the files included in this repository, and will need to be either replicated or updated.
 
