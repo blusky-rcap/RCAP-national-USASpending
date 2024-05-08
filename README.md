@@ -2,7 +2,7 @@
 This repository contains Python scripts used to conduct analysis of United States federal spending data downloaded from the publically available, U.S. Treasury Dept. run website USAspending.gov.
 The analysis organizes federal spending using the Catalog of Federal Domestic Assistance (CFDA) numbers for each program. For additional details on the programs of interest for this project, see the ```Program Search_CFDAs.xlsx``` spreadsheet in this repository. This repository does not contain a completed application, nor is intended to be an out-of-the-box toolset. 
 
-The goal for this code base was to create a table of location names and spending totals for multiple water-related programs, for the whole United States, from fiscal years 2000-2023. This table was used to create a GIS application, a webmap that details funding received across multiple programs for 2 decades by nearly 10,000 communites across the U.S.. 
+The goal for this code base was to create a table of location names and spending totals for multiple water-related programs, for the whole United States, from fiscal years 2000-2023. This table was used to create a GIS application, a webmap that details funding received across multiple programs for 2 decades by around 10,000 communites across the U.S.. 
 
 This project was funded by EPA under the National Water Infrastructure Environmental Finance Center Program.
 
